@@ -8,6 +8,7 @@ steps:
     command: 'build'
     arguments: '--no-restore --configuration ${{ parameters.buildConfiguration }}'
     projects: '**/*.csproj'
+
     
 - task: DotNetCoreCLI@2
   displayName: 'Run unit tests - ${{ parameters.buildConfiguration }}'
@@ -16,6 +17,7 @@ steps:
     arguments: '--no-build --configuration ${{ parameters.buildConfiguration }}'
     publishTestResults: true
     projects: '**/*.Tests.csproj'
+
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - ${{ parameters.buildConfiguration }}'
